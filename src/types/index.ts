@@ -1,7 +1,6 @@
 
 export interface buttonProps {
   text: string;
-  link: string;
   buttonCSS: string;
 }
 

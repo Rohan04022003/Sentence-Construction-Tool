@@ -1,12 +1,17 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import { useQuestions } from "../contexts/QuestionContext";
 
 const Home = () => {
+
+  const {fetchData} = useQuestions()
+
   return (
     <div className="w-full h-full flex justify-center items-center px-4 sm:px-6 md:px-8">
       <div className="h-[80%] w-full max-w-4xl text-center p-6 sm:p-8 flex flex-col justify-center items-center">
         
         {/* Logo Section */}
-        <div className="flex justify-center xl:mb-6 mb-2">
+        <div className="flex justify-center xl:mb-2">
           <svg
             width="73"
             height="72"
@@ -30,14 +35,14 @@ const Home = () => {
 
         {/* Title and Description */}
         <div className="mb-6">
-          <h1 className="pt-7 text-[2.6rem] font-semibold sm:text-[2rem]">Sentence Construction</h1>
+          <h1 className="pt-7 text-[1.8rem] font-semibold lg:text-[2rem]">Sentence Construction</h1>
           <p className="pt-1 text-md text-[#7C8181] sm:text-base">
             Select the correct words to complete the sentence by arranging the provided options in the right order.
           </p>
         </div>
 
         {/* Stats Section */}
-        <div className="stats py-6 sm:py-8 flex flex-wrap sm:flex-nowrap justify-center gap-6">
+        <div className="stats py-6 sm:py-8 flex flex-wrap sm:flex-nowrap justify-center lg:gap-6">
           <div className="left px-10 py-3 w-full sm:w-auto">
             <h2 className="text-[1.25rem] pb-3">Time Per Question</h2>
             <p className="text-[#7C8181] text-lg">30 seconds</p>
@@ -56,8 +61,8 @@ const Home = () => {
 
         {/* Action Buttons */}
         <div className="flex items-center justify-center gap-4 mt-6">
-          <Button text="Back" link="/" buttonCSS="first" />
-          <Button text="Start" link="/examination" buttonCSS="second" />
+          <Link to={"/"}><Button text="Back" buttonCSS="first" /></Link>
+          <Link to={"/examination"} onClick={fetchData}><Button text="Start" buttonCSS="second" /></Link>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../components/Button";
 import { IoIosArrowDown } from "react-icons/io";
 import { useQuestions } from "../contexts/QuestionContext";
+import { Link } from "react-router-dom";
 
 const renderSentenceWithAnswers = (
   template: string,
@@ -10,7 +11,7 @@ const renderSentenceWithAnswers = (
   const parts = template.split(/_{3,}/g);
   return parts.reduce((acc, part, index) => {
     acc.push(<span key={`text-${index}`}>{part}</span>);
-    if (index < answers?.length) {
+    if (answers && index < answers.length) {
       acc.push(
         <span
           key={`answer-${index}`}
@@ -73,10 +74,10 @@ const Result = () => {
         </div>
       </div>
 
-      <p className="text-center pt-14 lg:px-0 px-2">While you correctly formed several sentences, there are a couple of areas where improvement is needed. Pay close attention to sentence structure and word placement to ensure clarity and correctness. Review your responses below for more details.</p>
+      <p className="text-center pt-14 2xl:px-100 px-2">While you correctly formed several sentences, there are a couple of areas where improvement is needed. Pay close attention to sentence structure and word placement to ensure clarity and correctness. Review your responses below for more details.</p>
 
       <div className="py-20 flex flex-col justify-center items-center gap-10">
-        <Button text="Go To Dashboard" buttonCSS="first" link="/" />
+        <Link to={"/"}><Button text="Go To Dashboard" buttonCSS="first" /></Link>
         <IoIosArrowDown size={30} color="gray" />
       </div>
 
@@ -121,8 +122,6 @@ const Result = () => {
                     <>
                       <p className="text-gray-500">Not Attempted</p>
                       <div className="inline-block min-w-[5rem] px-1 font-medium text-center">
-                        {/* Blank space for unattempted */}
-                        _____________
                       </div>
                     </>
                   )}

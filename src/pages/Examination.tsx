@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { useQuestions } from "../contexts/QuestionContext";
 import Button from "../components/Button";
 import Timer from "../components/Timer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Examination = () => {
   const { questions, questionNumber, setQuestionNumber, userAnswers, setUserAnswers } = useQuestions();
@@ -49,14 +50,14 @@ const Examination = () => {
 
   const allBlanksFilled = selectedWords.every((val) => val !== null);
 
-  if (!currentQuestion) return <div>Loading...</div>;
+  if (!currentQuestion) return <div className="flex justify-center items-center w-screen h-screen">Loading...</div>;
 
   return (
     <div className="w-screen h-screen flex justify-center items-center p-4">
-      <div className="w-full max-w-[60rem] h-auto rounded-2xl shadow-2xl p-6 flex flex-col justify-between">
+      <div className="w-full max-w-[60rem] h-auto rounded-2xl shadow-2xl py-6 lg:px-6 px-2 flex flex-col justify-between">
         <div className="flex justify-between items-center pb-5">
           <Timer key={timerKey} initialTime={30} onTimeUp={handleNextQuestion} />
-          <Button text="Quit" link="/result" buttonCSS="third" />
+          <Link to={"/result"}><Button text="Quit" buttonCSS="third" /></Link>
         </div>
 
         <div className="question-progress-bar flex justify-between items-center gap-2">

@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import { buttonProps, ButtonStyleType } from '../types/index'
 
-const Button = ({ text, link, buttonCSS }: buttonProps) => {
+const Button = ({ text, buttonCSS }: buttonProps) => {
 
   const buttonStyle: ButtonStyleType = {
     first:
@@ -13,9 +12,8 @@ const Button = ({ text, link, buttonCSS }: buttonProps) => {
   };
 
   return (
-    <Link to={link}>
+
       <button className={`${buttonStyle[buttonCSS as keyof ButtonStyleType]}`}>{text}</button>
-    </Link>
   );
 };
 
