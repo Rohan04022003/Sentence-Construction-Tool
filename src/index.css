@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@keyframes coin-spin {
+    0% {
+      transform: rotateY(0deg);
+    }
+    48% {
+      transform: rotateY(360deg); /* clockwise spin */
+    }
+    50% {
+      transform: rotateY(360deg); /* pause */
+    }
+    98% {
+      transform: rotateY(0deg); /* anticlockwise spin */
+    }
+    100% {
+      transform: rotateY(0deg); /* pause again */
+    }
+  }
+  
+  .coin-spin {
+    animation: coin-spin 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+  
