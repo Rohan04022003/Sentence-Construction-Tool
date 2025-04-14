@@ -71,9 +71,9 @@ export const QuestionProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }}
     >
       {loading ? (
-        <div>Loading...</div> // Display loading while fetching data
+        <div className="w-screen h-screen flex justify-center items-center">Loading...</div> // Display loading while fetching data
       ) : error ? (
-        <div>{error}</div> // Show error message if fetching fails
+        <div className="w-screen h-screen flex justify-center items-center">{error}</div> // Show error message if fetching fails
       ) : (
         children
       )}
