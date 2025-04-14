@@ -26,7 +26,7 @@ export const QuestionProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const fetchData = () => {
     setQuestionNumber(0);
-    fetch(`${import.meta.env.VITE_API_URL}/data`)
+    fetch(`../../db.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
